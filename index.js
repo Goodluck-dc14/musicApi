@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const port = process.env.PORT || 2001;
 const app = express();
+const path = require("./MusicApi/Router");
 const cors = require("cors");
 app.use(express.json());
 
@@ -21,6 +22,8 @@ mongoose.connection
 app.get("/", async (req, res) => {
   res.send("music api build by codelab student");
 });
+
+app.use("/musicApi", path);
 
 app.use(cors());
 
